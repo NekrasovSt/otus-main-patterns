@@ -1,6 +1,4 @@
-using DefaultNamespace;
-
-namespace Lesson4;
+namespace Lessons;
 
 public class RotatableAdapter : IRotatableObject
 {

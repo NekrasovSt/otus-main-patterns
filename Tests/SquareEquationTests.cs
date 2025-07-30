@@ -1,4 +1,4 @@
-using Lesson4;
+using Lessons;
 using Xunit;
 
 namespace Tests;

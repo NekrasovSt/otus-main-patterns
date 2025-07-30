@@ -1,7 +1,6 @@
 using System.Collections.Concurrent;
-using System.Security.Cryptography;
 
-namespace Lesson4.Infrastructure;
+namespace Lessons.Infrastructure;
 
 public class ExecutionHandler
 {

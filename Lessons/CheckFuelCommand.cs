@@ -1,7 +1,7 @@
-using Lesson4.Exceptions;
-using Lesson4.Infrastructure;
+using Lessons.Exceptions;
+using Lessons.Infrastructure;
 
-namespace Lesson4;
+namespace Lessons;
 
 public class CheckFuelCommand: ICommand
 {

@@ -1,6 +1,4 @@
-using DefaultNamespace;
-
-namespace Lesson4.Helpers;
+namespace Lessons.Helpers;
 
 public static class StarshipBuilder
 {

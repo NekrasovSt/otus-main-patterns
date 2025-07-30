@@ -1,6 +1,6 @@
 using ArgumentException = System.ArgumentException;
 
-namespace Lesson4;
+namespace Lessons;
 
 public class SquareEquation
 {

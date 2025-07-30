@@ -1,8 +1,7 @@
-using DefaultNamespace;
-using Lesson4;
-using Lesson4.Exceptions;
-using Lesson4.Helpers;
-using Lesson4.Infrastructure;
+using Lessons;
+using Lessons.Exceptions;
+using Lessons.Helpers;
+using Lessons.Infrastructure;
 using Xunit;
 
 namespace Tests;

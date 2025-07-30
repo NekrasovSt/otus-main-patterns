@@ -1,4 +1,4 @@
-namespace Lesson4.Exceptions;
+namespace Lessons.Exceptions;
 
 public class CommandException: Exception
 {

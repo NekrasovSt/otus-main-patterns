@@ -1,7 +1,6 @@
 using System.Collections.Concurrent;
-using DefaultNamespace;
-using Lesson4;
-using Lesson4.Infrastructure;
+using Lessons;
+using Lessons.Infrastructure;
 using Moq;
 using Xunit;
 
