@@ -13,11 +13,6 @@ public class VelocityChangeableAdapter : IVelocityChangeable
 
     public Vector Velocity
     {
-        set
-        {
-            var velocity = Math.Sqrt(Math.Pow(value.X, 2) + Math.Pow(value.Y, 2));
-            _universalObject[nameof(Velocity)] = velocity;
-            _universalObject["Angular"] = (int)(Math.Acos((double)value.X / velocity) * (180 / Math.PI));
-        }
+        set => _universalObject[nameof(Velocity)] = value;
     }
 }

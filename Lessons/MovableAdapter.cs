@@ -11,19 +11,7 @@ public class MovableAdapter : IMovableObject
         _universalObject = universalObject;
     }
 
-    public Vector Velocity
-    {
-        get
-        {
-            var velocity = (double)_universalObject[nameof(Velocity)];
-            var angular = (int)_universalObject["Angular"];
-            return new Vector()
-            {
-                X = (int)(Math.Round(velocity * Math.Cos((Math.PI / 180) * angular), MidpointRounding.ToEven)),
-                Y = (int)(Math.Round(velocity * Math.Sin((Math.PI / 180) * angular), MidpointRounding.ToEven)),
-            };
-        }
-    }
+    public Vector Velocity => (Vector)_universalObject[nameof(Velocity)];
 
     public Vector Location
     {
