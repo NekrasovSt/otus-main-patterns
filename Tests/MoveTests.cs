@@ -1,4 +1,7 @@
 using Lessons;
+using Lessons.Adapters;
+using Lessons.Exceptions;
+using Lessons.Helpers;
 using Xunit;
 
 namespace Tests;

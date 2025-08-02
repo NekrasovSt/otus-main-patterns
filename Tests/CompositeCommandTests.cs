@@ -1,4 +1,6 @@
 using Lessons;
+using Lessons.Adapters;
+using Lessons.Commands;
 using Lessons.Exceptions;
 using Lessons.Helpers;
 using Lessons.Infrastructure;

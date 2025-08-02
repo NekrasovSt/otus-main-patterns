@@ -1,6 +1,7 @@
+using Lessons.Helpers;
 using Lessons.Infrastructure;
 
-namespace Lessons;
+namespace Lessons.Commands;
 
 public class MovingCommand: ICommand
 {

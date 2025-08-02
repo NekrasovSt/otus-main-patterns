@@ -1,3 +1,5 @@
+using Lessons.Adapters;
+
 namespace Lessons.Helpers;
 
 public static class StarshipBuilder

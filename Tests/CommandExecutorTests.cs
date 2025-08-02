@@ -1,5 +1,8 @@
 using System.Collections.Concurrent;
 using Lessons;
+using Lessons.Adapters;
+using Lessons.Commands;
+using Lessons.Exceptions;
 using Lessons.Infrastructure;
 using Moq;
 using Xunit;

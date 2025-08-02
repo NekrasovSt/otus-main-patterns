@@ -1,6 +1,6 @@
 using Lessons.Infrastructure;
 
-namespace Lessons;
+namespace Lessons.Commands;
 
 public class BurnFuelCommand: ICommand
 {

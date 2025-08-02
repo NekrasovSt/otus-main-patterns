@@ -1,4 +1,6 @@
-namespace Lessons;
+using Lessons.Exceptions;
+
+namespace Lessons.Helpers;
 
 public static class RotateHelper
 {

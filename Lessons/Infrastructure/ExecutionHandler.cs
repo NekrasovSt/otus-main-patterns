@@ -1,4 +1,6 @@
 using System.Collections.Concurrent;
+using Lessons.Commands;
+using Lessons.Exceptions;
 
 namespace Lessons.Infrastructure;
 

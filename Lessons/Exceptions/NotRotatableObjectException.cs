@@ -1,4 +1,4 @@
-namespace Lessons;
+namespace Lessons.Exceptions;
 
 public class NotRotatableObjectException: Exception
 {

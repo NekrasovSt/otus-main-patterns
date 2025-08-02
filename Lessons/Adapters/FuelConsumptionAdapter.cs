@@ -1,4 +1,4 @@
-namespace Lessons;
+namespace Lessons.Adapters;
 
 public class FuelConsumptionAdapter : IFuelConsumption
 {
