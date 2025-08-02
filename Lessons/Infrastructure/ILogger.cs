@@ -1,4 +1,4 @@
-namespace Lesson4.Infrastructure;
+namespace Lessons.Infrastructure;
 
 public interface ILogger
 {

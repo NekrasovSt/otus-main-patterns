@@ -1,6 +1,4 @@
-using System.Numerics;
-
-namespace Lesson4;
+namespace Lessons;
 
 public interface IVelocityChangeable {
     Vector Velocity { set; }

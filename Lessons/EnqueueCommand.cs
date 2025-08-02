@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
-using Lesson4.Infrastructure;
+using Lessons.Infrastructure;
 
-namespace Lesson4;
+namespace Lessons;
 
 public class EnqueueCommand: ICommand
 {

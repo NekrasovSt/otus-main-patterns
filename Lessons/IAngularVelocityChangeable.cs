@@ -1,4 +1,4 @@
-namespace Lesson4;
+namespace Lessons;
 
 public interface IAngularVelocityChangeable
 {
