@@ -13,12 +13,24 @@ public class CommandExecutor
         _executionHandler = executionHandler;
     }
 
+    public event Action<ICommand> BeforeRun;
+    public Task RunEventLoop()
+    {
+        return Task.Factory.StartNew(() =>
+        {
+            while (_blockingCollection.Count != 0)
+            {
+                ExecuteSingleCommand();
+            }
+        });
+    }
     public void ExecuteSingleCommand()
     {
         if (_blockingCollection.TryTake(out var command))
         {
             try
             {
+                BeforeRun?.Invoke(command);
                 command.Execute();
             }
             catch (Exception e)

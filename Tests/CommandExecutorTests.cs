@@ -12,7 +12,7 @@ namespace Tests;
 public class CommandExecutorTests
 {
     [Fact]
-    public void ExecutionWithoutErrors()
+    public async Task ExecutionWithoutErrors()
     {
         // Arrange
         var universalObject = new UObject();
@@ -34,7 +34,7 @@ public class CommandExecutorTests
             new CommandExecutor(blockingCollection, new ExecutionHandler(blockingCollection, logger.Object));
         blockingCollection.Add(new MovingCommand(movableAdapter));
         //Act
-        commandExecutor.ExecuteSingleCommand();
+        await commandExecutor.RunEventLoop();
 
         // Assert
         Assert.Equal(movableAdapter.Location.X, 5);
@@ -86,12 +86,13 @@ public class CommandExecutorTests
     }
 
     [Fact]
-    public void ErrorChain1()
+    public async Task ErrorChain1()
     {
         // при первом выбросе исключения повторить команду, при повторном выбросе исключения записать информацию в лог.
         // Arrange
         var universalObject = new UObject();
         var rotatable = new RotatableAdapter(universalObject);
+        var executionLog = new List<Type>();
 
         var logger = new Mock<ILogger>();
         var blockingCollection = new BlockingCollection<ICommand>();
@@ -99,21 +100,22 @@ public class CommandExecutorTests
             new CommandExecutor(blockingCollection, new ExecutionHandler(blockingCollection, logger.Object));
         var rotateCommand = new RotateCommand(rotatable);
         blockingCollection.Add(rotateCommand);
+        commandExecutor.BeforeRun += (command) =>
+        {
+            executionLog.Add(command.GetType());
+        };
 
         // Act
-        commandExecutor.ExecuteSingleCommand();
-
-        Assert.Single(blockingCollection); // В очереди RetryCommand
-
-        commandExecutor.ExecuteSingleCommand();
+        await commandExecutor.RunEventLoop();
 
         // Assert
         Assert.Empty(blockingCollection);
         logger.Verify(i => i.Log(It.IsAny<NotRotatableObjectException>()));
+        Assert.Single(executionLog, i => i == typeof(RetryCommand));
     }
 
     [Fact]
-    public void ErrorChain2()
+    public async Task ErrorChain2()
     {
         // Реализовать стратегию обработки исключения - повторить два раза, потом записать в лог.
         // Arrange
@@ -122,23 +124,22 @@ public class CommandExecutorTests
         var logger = new Mock<ILogger>();
         var blockingCollection = new BlockingCollection<ICommand>();
         var movingCommand = new MovingCommand(movable);
+        var executionLog = new List<Type>();
         var commandExecutor =
             new CommandExecutor(blockingCollection, new ExecutionHandler(blockingCollection, logger.Object));
         blockingCollection.Add(movingCommand);
+        commandExecutor.BeforeRun += (command) =>
+        {
+            executionLog.Add(command.GetType());
+        };
+
         
         // Act
-        commandExecutor.ExecuteSingleCommand();
-
-        Assert.Single(blockingCollection); // В очереди RetryCommand.NumberOfRetries = 0
-
-        commandExecutor.ExecuteSingleCommand();
-        
-        Assert.Single(blockingCollection); // В очереди RetryCommand.NumberOfRetries = 1
-
-        commandExecutor.ExecuteSingleCommand();
+        await commandExecutor.RunEventLoop();
 
         // Assert
         Assert.Empty(blockingCollection);
         logger.Verify(i => i.Log(It.IsAny<NotMovableObjectException>()));
+        Assert.Equal(2, executionLog.Count(i => i == typeof(RetryCommand)));
     }
 }
