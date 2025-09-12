@@ -4,9 +4,9 @@ namespace Lessons.Commands;
 
 public class HardStopCommand : ICommand
 {
-    private readonly ServerThread _serverThread;
+    private readonly IStoppable _serverThread;
 
-    public HardStopCommand(ServerThread serverThread) {
+    public HardStopCommand(IStoppable serverThread) {
         _serverThread = serverThread;
     }
 

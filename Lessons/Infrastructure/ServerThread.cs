@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 
 namespace Lessons.Infrastructure;
 
-public class ServerThread
+public class ServerThread: IStoppable
 {
     private BlockingCollection<ICommand> _blockingCollection;
     private Action _behaviour;

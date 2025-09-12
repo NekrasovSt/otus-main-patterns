@@ -12,7 +12,7 @@ public class CommandExecutor
         _blockingCollection = blockingCollection;
         _executionHandler = executionHandler;
     }
-
+ 
     public event Action<ICommand> BeforeRun;
     public Task RunEventLoop()
     {
