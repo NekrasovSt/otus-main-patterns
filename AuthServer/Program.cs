@@ -100,6 +100,7 @@ app.MapPost("checkToken", (CheckTokenDto dto) =>
         ValidateIssuerSigningKey = true,
         ValidAudience = "OTUS audience",
         ValidIssuer = "OTUS",
+        ValidateLifetime = false,
 
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
     };
