@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lessons", "Lessons\Lessons.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6F3A4387-CEA1-4BF2-9860-5B0CE09D61B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer", "AuthServer\AuthServer.csproj", "{D94F66E1-D999-492C-B87D-555E5ACFE016}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{6F3A4387-CEA1-4BF2-9860-5B0CE09D61B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F3A4387-CEA1-4BF2-9860-5B0CE09D61B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F3A4387-CEA1-4BF2-9860-5B0CE09D61B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D94F66E1-D999-492C-B87D-555E5ACFE016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D94F66E1-D999-492C-B87D-555E5ACFE016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D94F66E1-D999-492C-B87D-555E5ACFE016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D94F66E1-D999-492C-B87D-555E5ACFE016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
