@@ -14,6 +14,15 @@ public static class StarshipBuilder
         universalObject.Add("Id", id);
         return universalObject;
     }
+
+    public static UObject SetPlayerId(this UObject universalObject, Guid playerId)
+    {
+        var adapter = new PlayerSetterAdapter(universalObject)
+        {
+            PlayerId = playerId
+        };
+        return universalObject;
+    }
     
     public static UObject SetVelocity(this UObject universalObject, int x, int y)
     {
